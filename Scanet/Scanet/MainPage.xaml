@@ -4,11 +4,20 @@
              xmlns:local="clr-namespace:Scanet"
              x:Class="Scanet.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
+    <StackLayout BackgroundColor="Black">
+        
+    	<Label Text="Welcome to Scanet" TextColor="White" FontSize="Large"
+               x:Name="title"
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="Start" />
+        <Entry Placeholder="Enter Your E-Mail Address" PlaceholderColor="Black" BackgroundColor="White" Scale=".9"
+               Margin="20,100,20,0"
+               />
+        <Button Text="Enter" FontSize="Medium" BackgroundColor="Green" Scale=".6"
+                Margin="20,0,20,0" 
+                Clicked="OnEnter"
+                />
+
     </StackLayout>
 
 </ContentPage>
