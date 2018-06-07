@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Scanet"
              x:Class="Scanet.MainPage">
 
-    <StackLayout BackgroundColor="Black">
+    <StackLayout BackgroundColor="Black" VerticalOptions="Fill">
         
     	<Label Text="Welcome to Scanet" TextColor="White" FontSize="Large"
                x:Name="title"
@@ -16,6 +16,9 @@
         <Button Text="Enter" FontSize="Medium" BackgroundColor="Green" Scale=".6"
                 Margin="20,0,20,0" 
                 Clicked="OnEnter"
+                />
+        <Button Text="Files"  VerticalOptions="End" Margin="20,100,20,0"
+                Clicked="OnFileClick"
                 />
 
     </StackLayout>

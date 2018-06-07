@@ -5,19 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Scanet;
+using ZXing.Net.Mobile.Forms;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace Scanet
 {
-	public partial class MainPage : ContentPage
-	{
-        
+    public partial class MainPage : ContentPage
+    {
+
 
         public MainPage()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
+
             
-            
-		}
+        }
+
+        
 
         protected override void OnAppearing()
         {
@@ -28,15 +32,34 @@ namespace Scanet
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            
+
         }
 
         public async void OnEnter()
         {
             await title.ScaleTo(1, 2000, Easing.BounceOut);
+
+            var ScanPage = new ZXingScannerPage();
+            ScanPage.AutoFocus();
+
+            ScanPage.OnScanResult += (result) =>
+            {
+                Navigation.PopModalAsync();
+            };
+            await Navigation.PushModalAsync(ScanPage);
+
+        }
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://testscanet.azurewebsites.net");
+        TodoItem item = new TodoItem { Text = "Dave hit the button." };
+        
+
+        public async void OnFileClick()
+        {
+            await MobileService.GetTable<TodoItem>().InsertAsync(item);
+            var item = MobileService.GetTable<TodoItem>().ReadAsync();
             
-            Scanner Scanner = new Scanner();
-            await Navigation.PushModalAsync(Scanner);
+            fileview fileview = new fileview();
+            await Navigation.PushModalAsync(fileview);
         }
 
     }

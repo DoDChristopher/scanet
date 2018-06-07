@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Scanet;
 
 namespace Scanet
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Scanner : ContentPage
+	public partial class fileview : ContentPage
 	{
-		public Scanner ()
+		public fileview ()
 		{
 			InitializeComponent ();
-
-           
 		}
 	}
 }

@@ -1,6 +1,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.WindowsAzure.MobileServices;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace Scanet
@@ -11,7 +12,9 @@ namespace Scanet
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+            
+
+        MainPage = new MainPage();
 		}
 
 		protected override void OnStart ()
